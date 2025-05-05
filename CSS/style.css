@@ -1,9 +1,7 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
-    margin: 0;
     background: -webkit-linear-gradient(to right, #45a247, #283c86);
     background: linear-gradient(to right, #45a247, #283c86);
-
     color: white
 }
 
@@ -11,9 +9,10 @@ header {
     position: relative;
     background-size: cover;
     height: 200px;
+    padding-left: 3%;
 
     ul {
-        width: 100%;
+        width: 30%;
         padding: 13px;
         display: flex;
         flex-direction: row;
@@ -26,6 +25,7 @@ header {
     }
 
     h1 {
+        padding-top: 2%;
         font-size: 2.5em;
         text-align: center;
         padding-right: 2em;
@@ -34,7 +34,6 @@ header {
 
     a {
         text-decoration: none;
-
         color: white;
 
         &:visited {
@@ -44,9 +43,66 @@ header {
         &:hover {
             color: gray;
             text-decoration: underline;
+
         }
-
-
-
     }
+}
+
+.sectionAcceuil {
+    border-radius: 15px;
+    width: 35%;
+    background-color: #29323c;
+    text-align: left;
+    padding: 25px;
+    margin: 50px auto;
+
+    h2 {
+        text-align: center;
+    }
+
+    img {
+        display: block;
+        margin: 20px auto;
+        border-radius: 15px;
+        width: 50%;
+    }
+
+}
+
+.sectionConnect {
+    border-radius: 15px;
+    width: 35%;
+    background-color: #29323c;
+    text-align: left;
+    padding: 25px;
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h2 {
+        text-align: center;
+    }
+
+    button {
+        display: inline-block;
+        margin: 10px 20px;
+        padding: 10px 20px;
+        font-size: 1rem;
+        border-radius: 5px;
+        cursor: pointer; 
+        border: none;
+        background-color: #283c86;
+        color: white;
+        
+
+        &:hover {
+            background-color: white;
+            transition: background-color 0.3s ease;
+        }
+    }
+
+
+
 }
