@@ -1,8 +1,9 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background: -webkit-linear-gradient(to right, #45a247, #283c86);
     background: linear-gradient(to right, #45a247, #283c86);
-    color: white
+    color: white;
+    padding: 50px;
+
 }
 
 header {
@@ -70,32 +71,34 @@ header {
 }
 
 .sectionConnect {
-    border-radius: 15px;
-    width: 35%;
-    background-color: #29323c;
-    text-align: left;
-    padding: 25px;
-    margin: 50px auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-radius: 15px;
+    width: 35%;
+    background-color: #29323c;
+    text-align: center;
+    padding: 30px;
+    margin: auto;
+    color: white;
 
     h2 {
-        text-align: center;
+        margin-bottom: 20px;
     }
 
     button {
         display: inline-block;
-        margin: 10px 20px;
-        padding: 10px 20px;
+        margin: 20px;
+        padding: 20px;
         font-size: 1rem;
         border-radius: 5px;
-        cursor: pointer; 
+        cursor: pointer;
         border: none;
         background-color: #283c86;
         color: white;
-        
+        transition: background-color 0.3s ease;
+
 
         &:hover {
             background-color: white;
@@ -103,6 +106,36 @@ header {
         }
     }
 
+    .cardDeck {
+        display: grid;
+        grid-gap: 10px;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+
+        border-radius: 15px;
+        padding: 30px;
+        width: 100%;
+        box-sizing: border-box;
+
+        .singleCard {
+            border: solid;
+            border-color: white;
+            background: linear-gradient(to right, #45a247, #283c86);
+            width: 100px;
+            height: 100px;
+            border-radius: 10px;
+            padding: 20px;
+
+            .visible {}
+
+            .notVisible {}
+
+        }
+
+
+
+
+    }
 
 
 }
