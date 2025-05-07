@@ -1,94 +1,12 @@
-const tabDinos = [
-    `<img src="image/separateDinos/1.jpg">`,
-    `<img src="image/separateDinos/2.jpg">`,
-    `<img src="image/separateDinos/3.jpg">`,
-    `<img src="image/separateDinos/4.jpg">`,
-    `<img src="image/separateDinos/5.jpg">`,
-    `<img src="image/separateDinos/6.jpg">`,
-    `<img src="image/separateDinos/7.jpg">`,
-    `<img src="image/separateDinos/8.jpg">`,
-    `<img src="image/separateDinos/9.jpg">`,
-    `<img src="image/separateDinos/10.jpg">`
-];
-
-const tabAnimals = [
-    `<img src="image/separateAnimals/2.webp">`,
-    `<img src="image/separateAnimals/3.webp">`,
-    `<img src="image/separateAnimals/4.webp">`,
-    `<img src="image/separateAnimals/5.webp">`,
-    `<img src="image/separateAnimals/6.webp">`,
-    `<img src="image/separateAnimals/7.webp">`,
-    `<img src="image/separateAnimals/8.webp">`,
-    `<img src="image/separateAnimals/9.webp">`,
-    `<img src="image/separateAnimals/10.webp">`,
-    `<img src="image/separateAnimals/11.webp">`,
-    `<img src="image/separateAnimals/1.webp">`,
-    `<img src="image/separateAnimals/12.webp">`,
-    `<img src="image/separateAnimals/13.webp">`,
-    `<img src="image/separateAnimals/14.webp">`,
-    `<img src="image/separateAnimals/15.webp">`,
-    `<img src="image/separateAnimals/16.webp">`,
-    `<img src="image/separateAnimals/17.webp">`,
-    `<img src="image/separateAnimals/18.webp">`,
-    `<img src="image/separateAnimals/19.webp">`,
-    `<img src="image/separateAnimals/20.webp">`,
-    `<img src="image/separateAnimals/21.webp">`,
-    `<img src="image/separateAnimals/22.webp">`,
-    `<img src="image/separateAnimals/23.webp">`,
-    `<img src="image/separateAnimals/24.webp">`,
-    `<img src="image/separateAnimals/25.webp">`,
-    `<img src="image/separateAnimals/26.webp">`,
-    `<img src="image/separateAnimals/27.webp">`,
-    `<img src="image/separateAnimals/28.webp">`
-];
-
-const tabAnime = [
-    `<img src="image/separateAnime/1.webp">`,
-    `<img src="image/separateAnime/2.webp">`,
-    `<img src="image/separateAnime/3.webp">`,
-    `<img src="image/separateAnime/4.webp">`,
-    `<img src="image/separateAnime/5.webp">`,
-    `<img src="image/separateAnime/6.webp">`,
-    `<img src="image/separateAnime/7.webp">`,
-    `<img src="image/separateAnime/8.webp">`
-];
-
-const tabDogs = [
-    `<img src="image/separateDogs/2.webp">`,
-    `<img src="image/separateDogs/3.webp">`,
-    `<img src="image/separateDogs/4.webp">`,
-    `<img src="image/separateDogs/5.webp">`,
-    `<img src="image/separateDogs/6.webp">`,
-    `<img src="image/separateDogs/7.webp">`,
-    `<img src="image/separateDogs/8.webp">`,
-    `<img src="image/separateDogs/9.webp">`,
-    `<img src="image/separateDogs/10.webp">`,
-    `<img src="image/separateDogs/11.webp">`,
-    `<img src="image/separateDogs/1.webp">`,
-    `<img src="image/separateDogs/12.webp">`,
-    `<img src="image/separateDogs/13.webp">`,
-    `<img src="image/separateDogs/14.webp">`,
-    `<img src="image/separateDogs/15.webp">`,
-    `<img src="image/separateDogs/16.webp">`,
-    `<img src="image/separateDogs/17.webp">`,
-    `<img src="image/separateDogs/18.webp">`,
-    `<img src="image/separateDogs/19.webp">`,
-    `<img src="image/separateDogs/20.webp">`,
-    `<img src="image/separateDogs/21.webp">`,
-    `<img src="image/separateDogs/22.webp">`,
-    `<img src="image/separateDogs/23.webp">`,
-];
-
-
-const board = document.querySelector(".boardDeck")
+const boardDeck = document.querySelector(".boardDeck")
 const choiceDifficult = document.getElementById('choiceDifficulty')
 let choiceD;
 let cardCount;
 
-choiceDifficult.addEventListener('change', function () {
+choiceDifficult.addEventListener('change', function createDeck() {
     choiceD = choiceDifficult.value;
 
-    board.innerHTML = '';
+    boardDeck.innerHTML = '';
 
     switch (choiceD) {
         case 'Facile':
@@ -108,9 +26,17 @@ choiceDifficult.addEventListener('change', function () {
             return;
     }
 
+    const tabDesk = [];
+    for (let index = 0; index < cardCount / 2; index++) {
+        let randomNumber = Math.floor(Math.random() * (maxNumberImg - 1) + 1)
+        tabDesk.push(`<img src="./images/${imagePath}/${randomNumber}${imageFormat}">`);
+        tabDesk.push(`<img src="./images/${imagePath}/${randomNumber}${imageFormat}">`);
+
+    }
+  
     const cardDeck = document.createElement('div');
     cardDeck.classList.add('cardDeck')
-    board.appendChild(cardDeck);
+    boardDeck.appendChild(cardDeck);
 
     for (let index = 0; index < cardCount; index++) {
         const singleCard = document.createElement('div')
@@ -122,31 +48,25 @@ choiceDifficult.addEventListener('change', function () {
         const visible = document.createElement('div');
         visible.classList.add('visible');
 
+
         singleCard.appendChild(notVisible);
         singleCard.appendChild(visible);
         cardDeck.appendChild(singleCard);
+        console.log(visible);
+        
+
     }
+
+
+    const tabDoubleCard = document.querySelectorAll(".visible")
+    console.log(tabDoubleCard, tabDesk);
+    let index = 0;
+    tabDoubleCard.forEach(card => {
+       card.innerHTML = tabDesk[index];
+       index++;
+    });
 
 })
 
 
-
-const choiceM = document.getElementById('choiceMemory')
-let choiceM2;
-
-            
-//             break;
-//         case "Animaux animés":
-//             //
-//             break;
-//         case "Chiens":
-            
-//             break;
-//         case "Dinosaures":
-            
-//             break;
-//         default:
-//             break;
-//     }
-// }
 
