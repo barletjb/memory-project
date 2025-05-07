@@ -3,7 +3,9 @@ const choiceDifficult = document.getElementById('choiceDifficulty')
 let choiceD;
 let cardCount;
 
-choiceDifficult.addEventListener('change', function createDeck() {
+// Creat LVL Difficult:
+
+choiceDifficult.addEventListener('change', function () {
     choiceD = choiceDifficult.value;
 
     boardDeck.innerHTML = '';
@@ -25,48 +27,53 @@ choiceDifficult.addEventListener('change', function createDeck() {
         default:
             return;
     }
-
-    const tabDesk = [];
-    for (let index = 0; index < cardCount / 2; index++) {
-        let randomNumber = Math.floor(Math.random() * (maxNumberImg - 1) + 1)
-        tabDesk.push(`<img src="./images/${imagePath}/${randomNumber}${imageFormat}">`);
-        tabDesk.push(`<img src="./images/${imagePath}/${randomNumber}${imageFormat}">`);
-
-    }
-  
-    const cardDeck = document.createElement('div');
-    cardDeck.classList.add('cardDeck')
-    boardDeck.appendChild(cardDeck);
-
-    for (let index = 0; index < cardCount; index++) {
-        const singleCard = document.createElement('div')
-        singleCard.classList.add('singleCard')
-
-        const notVisible = document.createElement('div');
-        notVisible.classList.add('notVisible');
-
-        const visible = document.createElement('div');
-        visible.classList.add('visible');
-
-
-        singleCard.appendChild(notVisible);
-        singleCard.appendChild(visible);
-        cardDeck.appendChild(singleCard);
-        console.log(visible);
-        
-
-    }
-
-
-    const tabDoubleCard = document.querySelectorAll(".visible")
-    console.log(tabDoubleCard, tabDesk);
-    let index = 0;
-    tabDoubleCard.forEach(card => {
-       card.innerHTML = tabDesk[index];
-       index++;
-    });
+    creatBoardDeck(cardCount)
+    createRandomDeck(choiceMemory)
 
 })
 
 
 
+function createRandomDeck(params) {
+
+    // Creat tabDesk with random number with choiceMemory (variable imagePath, maxNumberImg, imageFormat):
+    const tabDesk = [];
+    for (let index = 0; index < cardCount / 2; index++) {
+        let randomNumber = Math.floor(Math.random() * (maxNumberImg - 1) + 1)
+        tabDesk.push(`<img src="./images/${imagePath}/${randomNumber}${imageFormat}">`);
+        tabDesk.push(`<img src="./images/${imagePath}/${randomNumber}${imageFormat}">`);
+    }
+
+    // Shuffle tadDesk
+    tabDesk.sort(() => Math.random() - 0.5);
+
+    // Import TabDesk in <div> "visible"
+    const tabDoubleCard = document.querySelectorAll(".visible")
+    let index = 0;
+    tabDoubleCard.forEach(card => {
+        card.innerHTML = tabDesk[index];
+        index++;
+    })
+}
+
+function creatBoardDeck(params) {
+
+    const cardDeck = document.createElement('div');
+    cardDeck.classList.add('cardDeck')
+    boardDeck.appendChild(cardDeck);
+
+    // Creat <div> with choiceDifficult(cardCount)
+
+    for (let index = 0; index < params; index++) {
+
+        const singleCard = document.createElement('div')
+        singleCard.classList.add('singleCard')
+        
+        const visible = document.createElement('div');
+        visible.classList.add('visible');
+
+        cardDeck.appendChild(singleCard);
+        singleCard.appendChild(visible);
+    
+    }
+}

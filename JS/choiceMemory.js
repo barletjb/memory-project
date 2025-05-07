@@ -2,6 +2,9 @@ const imageContainer = document.getElementById('imageContainer')
 const choice = document.getElementById('choiceMemory')
 let choiceMemory, imagePath, maxNumberImg, imageFormat;
 
+
+//  Creat Fonction : Print img with choice
+
 choice.addEventListener('change', function () {
     choiceMemory = choice.value;
 
