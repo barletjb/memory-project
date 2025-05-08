@@ -130,17 +130,14 @@ header {
             cursor: pointer;
 
             .visible img {
+                visibility: hidden;
                 width: 100%;
                 background-size: contain;
                 background-repeat: no-repeat;
                 background-position: center center;
             }
 
-            .selected {
-                border: 4px solid blue;
-            }
-
-
+            
 
         }
 
