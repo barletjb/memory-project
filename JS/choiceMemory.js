@@ -19,9 +19,7 @@ export function choiceMemory(gameSettings) {
                 gameSettings.imagePath = "separateAnimals";
                 gameSettings.maxNumberImg = 27;
                 gameSettings.imageFormat = ".webp"
-                console.log(gameSettings);
-
-
+                
                 break;
             case 'Animaux animés':
                 imageContainer.innerHTML = '<img src="images/animaux_animes.png">'
@@ -50,6 +48,5 @@ export function choiceMemory(gameSettings) {
 
     })
 
-    return gameSettings;
 
 }
