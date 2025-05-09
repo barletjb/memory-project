@@ -23,6 +23,7 @@ header {
         bottom: 0;
         margin: 0;
         background-color: #29323c;
+        border-radius: 15px;
     }
 
     h1 {
